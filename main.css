@@ -23,5 +23,22 @@ header {
     margin: 0px;
 }
 a {
+    color: green;
     text-decoration: none;
+}
+a:link {
+    color: darkcyan;
+    text-decoration: none;
+}
+a:visited {
+    color: grey;
+    text-decoration: underline;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+a:active {
+    color: black;
+    opacity: 0.3;
 }
