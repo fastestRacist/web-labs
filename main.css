@@ -45,12 +45,12 @@ a:active {
     opacity: 0.3;
 }
 div.menu {
-    border: 7px solid #00880080;
-    border-radius: 5px;
-    width: 300px;
+    border: 3px solid #7c7c7c80;
+    border-radius: 10px;
+    width: 240px;
     margin: 0 auto;
 }
 div.menu:hover {
-    background-color: #ffffff30;
+    background-color: #02240430;
     box-shadow: 0 0 15x #00000030;
 }
