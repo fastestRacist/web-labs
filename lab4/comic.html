@@ -10,21 +10,78 @@
     <link rel="icon" href="../favicon-32x32.png">
     <link rel="icon" href="../favicon-16x16.png">
     <style>
-        div {
-            border-radius: 50%;
+        .comic-container {
+            position: relative;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comic-container img {
+            display: block;
+        }
+        .bubble {
+            opacity: 0;
+            position: absolute;
             background-color: white;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px gray;
             text-align: center;
-            margin: 10px
+            padding: 10px;
+            transition: opacity 0.6s;
+        }
+        .bubble1 {
+            position: relative; 
+            left: 500px; 
+            top: -430px; 
+            z-index: 1; 
+            width: 100px; 
+            height: 50px;
+        }
+        .bubble2 {
+            position: relative; 
+            left: 570px; 
+            top: -530px; 
+            z-index: 2; 
+            width: 150px; 
+            height: 75px;
+        }
+        .bubble3 {
+            position: relative; 
+            left: 660px; 
+            top: -670px; 
+            z-index:3; 
+            width: 200px; 
+            height: 100px
+        }
+        .bubble4 {
+            position: relative; 
+            left: 740px; 
+            top: -940px; 
+            z-index: 4; 
+            width: 400px; 
+            height: 240px;
+            text-align: center; 
+            font-size: 60px
+        }
+        .comic-container:hover .bubble {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <img src="horse.jpg" height="900px" width="1200px";
-    style="position: relative; left: 350px;">
-    <div style="position: relative; left: 800px; top: -430px; z-index: 1; width: 100px; height: 50px;"></div>
-    <div style="position: relative; left: 870px; top: -530px; z-index: 2; width: 150px; height: 75px;"></div>
-    <div style="position: relative; left: 960px; top: -670px; z-index:3 ; width: 200px; height: 100px;"></div>
-    <div style="position: relative; left: 1040px; top: -940px; z-index: 4; width: 400px; height: 240px;
-    text-align: center; font-size: 60px;">меня окружает лош...</div>
+    <div class="comic-container">
+        <img src="horse.jpg" height="900px" width="1200px";  style="left: 350px;">
+        <div class="bubble bubble1">
+        </div>
+        <div class="bubble bubble2">
+        </div>
+        <div class="bubble bubble3">
+        </div>
+        <div class="bubble bubble4">
+            меня окружает лош...<a style="font-size: 20pt;
+            color: darkred;
+            bottom: 3000px;">(адь)</a>
+        </div>
+    </div>
 </body>
 </html>
