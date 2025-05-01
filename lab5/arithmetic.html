@@ -15,6 +15,13 @@
             let result = a + b;
             alert('Сумма ' + a + ' и '+ b + ' равна ' + result);
         }
+        function showAuthor() {
+            let author = 'Автор страницы:\nХобенков Егор Алексеевич';
+            alert(author);
+        }
+        function showKefteme() {
+            alert('Спасибо, что посетили эту страницу!\nУстрой дестрой!')
+        }
     </script>
     <style>
         .message {
@@ -32,14 +39,16 @@
     </style>
 </head>
 <body>
-    <header>
+    <header onclick="showAuthor()";
+    style="cursor: pointer;">
         НГТУ, ФБ, Лабораторная работа 5
     </header>
     <main>
         <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
-    <footer>
+    <footer ondblclick="showKefteme()";
+    style="cursor: pointer;">
         &copy; Хобенков Егор, ФБИ-32, 2 курс, 2025
     </footer>
 </body>
