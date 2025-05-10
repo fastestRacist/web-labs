@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хобенков Егор Алексеевич. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        div {
+            color: darkred;
+            margin: 0 auto;
+        }
+
+    </style>
+    <script>
+        function showMultipleTable() {
+            let tbl = document.getElementById('mtable');
+            tbl.innerHTML = '<h1>Таблица умножения</h1>';
+            for(i = 1; i <= 10; i++) {
+                let s = `<div>${i} * 7 =  ${i*7}</div>`;
+                tbl.innerHTML +=s;
+            }
+        }
+        showMultipleTable();
+    </script>
+</head>
+<body onload="showMultipleTable()">
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <main>
+        <div id="mtable"></div>
+    </main>
+    <footer>
+        &copy; Хобенков Егор, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
