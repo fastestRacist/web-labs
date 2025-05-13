@@ -29,6 +29,34 @@
                 <span style="color: red;">Дата и время китайской локали: ${chinaDate}</span><br>
             `;
         }
+        function changeColors () {
+            const header = document.getElementsByTagName('header')[0];
+            const rgb = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            header.style.color = rgb;
+        }
+        function startChangeColors() {
+            changeColors();
+            timerNum = setInterval(changeColors, 1000);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('stop-btn').disabled =false;
+        }
+        function stopChangeColors() {
+            clearInterval(timerNum);
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('stop-btn').disabled = true;
+        }
+        function startTimeUpdate() {
+            showDate();
+            timeTimer = setInterval(showDate, 1000);
+            document.getElementById('time-start-btn').disabled = true;
+            document.getElementById('time-stop-btn').disabled = false;
+        }
+
+        function stopTimeUpdate() {
+            clearInterval(timeTimer);
+            document.getElementById('time-start-btn').disabled = false;
+            document.getElementById('time-stop-btn').disabled = true;
+        }
     </script>
 </head>
 <body onload='showDate()'>
@@ -37,6 +65,12 @@
     </header>
     <main>
         <div id="current-date"></div>
+        <div>
+            <button onclick="startChangeColors()" id="start-btn">Старт</button>
+            <button onclick="stopChangeColors()" id="stop-btn" disabled>Стоп</button>
+            <button onclick="startTimeUpdate()" id="time-start-btn">Обновлять время</button>
+            <button onclick="stopTimeUpdate()" id="time-stop-btn" disabled>Остановить обновление времени</button>
+        </div>
     </main>
     <footer>
         &copy; Хобенков Егор, ФБИ-32, 2 курс, 2025
