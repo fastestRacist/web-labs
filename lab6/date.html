@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хобенков Егор Алексеевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+    </style>
+    <script>
+         function showDate() {
+            let out = document.getElementById('current-date');
+            let today = new Date();
+            let russianDate = today.toLocaleString('ru-RU');
+            let southAfricaDate = today.toLocaleString('af-ZA');
+            let egyptDate = today.toLocaleDateString('ar-EG');
+            let greekDate = today.toLocaleString('el-GR');
+            let pakistanDate = today.toLocaleString('ur-PK');
+            let chinaDate = today.toLocaleString('zh');
+            out.innerHTML = `
+                <span style="color: red;">Дата и время для русской локали: ${russianDate}</span><br>
+                <span style="color: red;">Дата и время для локали ЮАР: ${southAfricaDate}</span><br>
+                <span style="color: red;">Дата и время для локали Египта: ${egyptDate}</span><br>
+                <span style="color: red;">Дата и время греческой локали:  ${greekDate}</span><br>
+                <span style="color: red;">Дата и время пакистанской локали:  ${pakistanDate}</span><br>
+                <span style="color: red;">Дата и время китайской локали: ${chinaDate}</span><br>
+            `;
+        }
+    </script>
+</head>
+<body onload='showDate()'>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    <main>
+        <div id="current-date"></div>
+    </main>
+    <footer>
+        &copy; Хобенков Егор, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
