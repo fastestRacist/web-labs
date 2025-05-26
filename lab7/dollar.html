@@ -35,8 +35,7 @@
             let table = document.getElementById('dollar-table');
             let detail = document.getElementById('detail');
             let button = document.getElementById('buttonOFF');
-
-            button.style.display = 'none';
+                button.remove(); // Удаляем кнопку
 
             for(let i = 0; i < exchange.length; i++) {
                 let tr = document.createElement('tr');
@@ -45,7 +44,6 @@
                 tr.appendChild(td);
                 table.appendChild(tr);
             }
-
             let sum = 0;
             for(let i = 0; i < exchange.length; i++) {
                 sum += exchange[i];
