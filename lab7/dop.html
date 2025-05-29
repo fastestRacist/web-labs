@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Хобенков Егор Алексеевич. Лабораторная 7</title>
+  <link rel="stylesheet" href="../main.css" />
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="../favicon-32x32.png" />
+  <link rel="icon" href="../favicon-16x16.png" />
+  <style>
+    #chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      height: 300px;
+      border-left: 1px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    .bar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bar {
+      width: 40px;
+      background-color: steelblue;
+      position: relative;
+    }
+
+    .temp-label {
+      font-size: 12px;
+      position: absolute;
+      top: -20px;
+      color: #000;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 1px 3px;
+      border-radius: 3px;
+    }
+
+    .time-label {
+      margin-top: 5px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    НГТУ, ФБ, Лабораторная работа 7
+  </header>
+  <h1>Погода в Новосибирске</h1>
+  <button onclick="loadWeather()">Показать прогноз</button>
+  <div id="current">Загрузка...</div>
+  <div id="chart">График появится здесь</div>
+
+  <script>
+    async function loadWeather() {
+      const url =
+        'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m,apparent_temperature&current_weather=true&past_days=1&forecast_days=1&timezone=Asia%2FBangkok';
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const current = data.current_weather;
+      const hourlyTimes = data.hourly.time;
+      const apparentTemps = data.hourly.apparent_temperature;
+      const temps = data.hourly.temperature_2m;
+
+      // Найдём ближайшее значение apparent_temperature по времени current_weather
+      function findClosestApparentTemp() {
+        if (!hourlyTimes || !apparentTemps) return null;
+        const now = new Date(current.time);
+        let closestIndex = 0;
+        let minDiff = Infinity;
+        for (let i = 0; i < hourlyTimes.length; i++) {
+          const t = new Date(hourlyTimes[i]);
+          const diff = Math.abs(t - now);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = i;
+          }
+        }
+        return apparentTemps[closestIndex];
+      }
+
+      const apparentTempClosest = findClosestApparentTemp();
+
+      let html = `Температура: <strong>${current.temperature}°C</strong><br>`;
+      if (apparentTempClosest !== null && apparentTempClosest !== undefined) {
+        html += `Ощущается как: <strong>${apparentTempClosest.toFixed(1)}°C</strong>`;
+      } else {
+        html += `Ощущается как: <em>нет данных</em>`;
+      }
+      document.getElementById('current').innerHTML = html;
+
+      const today = new Date().toISOString().split('T')[0];
+      const time = hourlyTimes;
+      const chart = document.getElementById('chart');
+      chart.innerHTML = '';
+      for (let i = 0; i < time.length; i++) {
+        if (time[i].startsWith(today)) {
+          const hour = time[i].slice(11, 16); // "HH:MM"
+          const t = temps[i];
+          const bar = document.createElement('div');
+          bar.className = 'bar';
+          bar.style.height = t * 10 + 'px'; // 1°C = 10px высоты
+
+          const label = document.createElement('span');
+          label.textContent = hour;
+
+          const tempLabel = document.createElement('div');
+          tempLabel.className = 'temp-label';
+          tempLabel.textContent = `${t}°`;
+
+          bar.appendChild(tempLabel);
+          bar.appendChild(label);
+          chart.appendChild(bar);
+        }
+      }
+    }
+  </script>
+  <footer>
+    &copy; Хобенков Егор, ФБИ-32, 2 курс, 2025
+  </footer>
+</body>
+</html>
