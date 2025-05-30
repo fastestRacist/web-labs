@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon2.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О компании</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon2.png">
     <style>
-        .news-card button, 
-        .news-card a {
-            background: none;
-            border: none;
-            color: #0066cc;
-            text-decoration: underline;
-            cursor: pointer;
-            padding: 0;
-            font: inherit;
-        }
+    .news-card button, 
+    .news-card a {
+        background: none;
+        border: none;
+        color: #0066cc;
+        text-decoration: underline;
+        cursor: pointer;
+        padding: 0;
+        font: inherit;
+    }
 
-        .news-card button:hover, 
-        .news-card a:hover {
-            text-decoration: none;
-        }
+    .news-card button:hover, 
+    .news-card a:hover {
+        text-decoration: none;
+    }
     </style>
     <script>
-        function showFullNews(id) {
-        document.getElementById(id).style.display = 'block';
+    function showFullNews(id) {
+    document.getElementById(id).style.display = 'block';
     }
-        function hideFullNews(id) {
-        document.getElementById(id).style.display = 'none';
+    function hideFullNews(id) {
+    document.getElementById(id).style.display = 'none';
     }
     </script>
 </head>
 <body id="top">
-    <header>
-        <img src="logo.png" height="100">
-    </header>
-
+  <header>
+    <img src="logo.png" alt="Логотип">
+    <nav class="topnav">
+      <ul>
+        <li><a href="info.html" class="menu-link">О компании</a></li>
+        <li><a href="news.html" class="menu-link">Новости</a></li>
+        <li><a href="exchange.html" class="menu-link">Курс валют</a></li>
+        <li><a href="contacts.html" class="menu-link">Контакты</a></li>
+        <li><a href="video.html" class="menu-link">Видео</a></li>
+      </ul>
+    </nav>
+  </header>
     <div class="wrapper">
-        <nav class="sidebar">
-            <ul>
-                <li><a href="info.html" class="menu-link">О компании</a></li>
-                <li><a href="news.html" class="menu-link">Новости</a></li>
-                <li><a href="exchange.html" class="menu-link">Курс валют</a></li>
-                <li><a href="contacts.html" class="menu-link">Контакты</a></li>
-                <li><a href="video.html" class="menu-link">Видео</a></li>
-            </ul>
-        </nav>
-
         <main style="width: 1200px; 
         position: relative; 
         right: 10px;          
