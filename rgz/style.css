@@ -8,7 +8,7 @@ body {
 .wrapper {
     display: flex;
     flex: 1;
-    margin-top: 160px; /* Учитываем высоту header + меню */
+    margin-top: 160px;
 }
 
 main {
@@ -32,8 +32,6 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-/* Стили меню в хедере */
 header img {
     display: block;
     margin: 0 auto;
@@ -85,21 +83,9 @@ a:link {
     color: rgb(61, 113, 255);
     text-decoration: none;
 }
-
-a:visited {
-    color: grey;
-    text-decoration: underline;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 a:active {
-    color: black;
     opacity: 0.3;
 }
-
 .contacts-table {
     width: 100%;
     border-collapse: collapse;
@@ -140,26 +126,6 @@ h1, h2 {
     z-index: 99;
     text-decoration: none;
 }
-
-.slide p {
-    color: #666;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.slide strong {
-    font-weight: bold;
-}
-
-.slide a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.slide a:hover {
-    text-decoration: underline;
-}
-
 .news-container {
     display: flex;
     flex-wrap: wrap;
