@@ -109,11 +109,11 @@
       chart.innerHTML = '';
       for (let i = 0; i < time.length; i++) {
         if (time[i].startsWith(today)) {
-          const hour = time[i].slice(11, 16); // "HH:MM"
+          const hour = time[i].slice(11, 16); // формат HH:MM
           const t = temps[i];
           const bar = document.createElement('div');
           bar.className = 'bar';
-          bar.style.height = t * 10 + 'px'; // 1°C = 10px высоты
+          bar.style.height = t * 10 + 'px';
 
           const label = document.createElement('span');
           label.textContent = hour;
