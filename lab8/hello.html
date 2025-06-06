@@ -146,10 +146,10 @@
             },
             methods: {
                 incCounter() {
-                    this.counter++;
+                    this.counter = this.counter * 2;
                 },
                 decCounter() {
-                    this.counter--;
+                    this.counter = this.counter / 2;
                 },
                 edit(id, flower) {
                     let newName = prompt('Введите имя цветка:', flower);
